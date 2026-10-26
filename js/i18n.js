@@ -7,7 +7,7 @@ window.I18N = {
     menuOpen: 'Open the menu', menuClose: 'Close the menu',
     videoPause: 'Pause the background video', videoPlay: 'Play the background video',
     skip: 'Skip to content',
-    strip: 'Demo mock-up · unofficial site, not published',
+    strip: 'Demo mock-up · unofficial site',
     brandLabel: "L'Ariadne Plage, back to top",
     navLabel: 'Main navigation',
     nav1: 'The beach', nav2: 'The menu', nav3: 'Cocktails &amp; nights', nav4: 'Practical info',
@@ -97,7 +97,7 @@ window.I18N = {
     socialTitle: 'Follow the beach',
     payNote: 'Cards, cash and meal vouchers accepted.',
 
-    foot1: '<strong>Demo mock-up</strong> made independently of the restaurant, not published. Photos and logo © L\'Ariadne, to be replaced or approved. Public information to be confirmed.',
+    foot1: '<strong>Demo mock-up</strong> made independently of the restaurant. Photos and logo © L\'Ariadne, to be replaced or approved. Public information to be confirmed.',
     foot2: 'Background video: “Shot of beach waves during sunset”, <a href="https://pixabay.com/videos/sea-ocean-beach-waves-sun-dusk-138588/" target="_blank" rel="noopener">Pixabay no.&nbsp;138588</a> (Pixabay licence). It is not L\'Ariadne\'s beach.',
     barLabel: 'Quick actions', barMap: 'Directions', barMenu: 'Menu',
 
@@ -147,7 +147,7 @@ window.I18N = {
     menuOpen: 'Apri il menu', menuClose: 'Chiudi il menu',
     videoPause: 'Metti in pausa il video di sfondo', videoPlay: 'Riproduci il video di sfondo',
     skip: 'Vai al contenuto',
-    strip: 'Sito dimostrativo · non ufficiale, non pubblicato',
+    strip: 'Sito dimostrativo · non ufficiale',
     brandLabel: "L'Ariadne Plage, torna su",
     navLabel: 'Menu principale',
     nav1: 'La spiaggia', nav2: 'Il menu', nav3: 'Cocktail &amp; serate', nav4: 'Info pratiche',
@@ -237,7 +237,7 @@ window.I18N = {
     socialTitle: 'Segui la spiaggia',
     payNote: 'Si accettano carte, contanti e buoni pasto.',
 
-    foot1: '<strong>Sito dimostrativo</strong> realizzato senza legami con il locale, non pubblicato. Foto e logo © L\'Ariadne, da sostituire o approvare. Informazioni pubbliche da confermare.',
+    foot1: '<strong>Sito dimostrativo</strong> realizzato senza legami con il locale. Foto e logo © L\'Ariadne, da sostituire o approvare. Informazioni pubbliche da confermare.',
     foot2: 'Video di sfondo: «Shot of beach waves during sunset», <a href="https://pixabay.com/videos/sea-ocean-beach-waves-sun-dusk-138588/" target="_blank" rel="noopener">Pixabay n.&nbsp;138588</a> (licenza Pixabay). Non è la spiaggia de L\'Ariadne.',
     barLabel: 'Azioni rapide', barMap: 'Itinerario', barMenu: 'Menu',
 
