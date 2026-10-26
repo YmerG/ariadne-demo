@@ -6,6 +6,11 @@ const header = $('.header');
 const burger = $('.burger');
 const nav = $('#nav');
 
+// Écran d'arrivée : se retire de lui-même, ou au clic
+const loader = $('.loader');
+loader.addEventListener('animationend', e => e.target === loader && loader.remove());
+loader.addEventListener('click', () => loader.remove());
+
 // ---------- Langues FR / EN / IT (le français est le texte de la page) ----------
 const FR = {
   title: document.title,

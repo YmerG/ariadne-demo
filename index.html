@@ -50,6 +50,18 @@
   </script>
 </head>
 <body>
+  <!-- Écran d'arrivée : disparaît seul (CSS, ~1,35 s), même si le JavaScript échoue ; la vidéo se charge derrière -->
+  <div class="loader" aria-hidden="true">
+    <svg class="loader-sun" viewBox="0 0 64 40" width="88" height="55">
+      <clipPath id="horizon"><rect width="64" height="25"/></clipPath>
+      <circle class="sun" cx="32" cy="25" r="12" clip-path="url(#horizon)"/>
+      <path class="wave" d="M4 29q7-4 14 0t14 0t14 0t14 0"/>
+      <path class="wave wave-2" d="M13 35q6.5-3.5 13 0t13 0t13 0"/>
+    </svg>
+    <span class="loader-name">L'Ariadne</span>
+    <span class="loader-sub">Plage · Ajaccio</span>
+  </div>
+
   <a class="skip" href="#contenu" data-i18n="skip">Aller au contenu</a>
 
   <div class="demo-strip" role="note" data-i18n="strip">Maquette de démonstration · site non officiel</div>

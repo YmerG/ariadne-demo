@@ -106,6 +106,18 @@ html:not(.js) .langs { display: none; } /* sans JavaScript, les boutons de langu
 .season-badge { position: absolute; z-index: 1; right: clamp(1rem, 4vw, 3rem); bottom: clamp(1.4rem, 4vh, 2.4rem); margin: 0; display: flex; align-items: center; gap: .5rem; padding: .5rem 1rem; border-radius: 999px; background: rgba(246, 240, 227, .92); color: var(--ink); font-size: .92rem; }
 .dot { flex: none; width: .6rem; height: .6rem; border-radius: 50%; background: var(--ochre); box-shadow: 0 0 0 0 rgba(201, 154, 59, .6); animation: pulse 2.4s infinite; }
 
+/* Écran d'arrivée : le soleil se pose sur l'horizon, les vagues se dessinent, puis le rideau se lève (fini avant 1,4 s) */
+.loader { display: none; }
+.js .loader { position: fixed; inset: 0; z-index: 200; display: grid; place-content: center; justify-items: center; gap: .7rem; background: radial-gradient(circle at 50% 42%, #5c2a1c, var(--night) 64%); color: var(--cream); cursor: pointer; animation: loader-out .5s cubic-bezier(.7, 0, .2, 1) .85s forwards; }
+.loader-sun { overflow: visible; margin-bottom: .2rem; }
+.loader-sun .sun { fill: #f6dfae; animation: sun-set .7s var(--ease) both; }
+.loader-sun .wave { fill: none; stroke: var(--ochre); stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 64; animation: wave-draw .7s .1s ease-out both; }
+.loader-sun .wave-2 { stroke: var(--cream); opacity: .7; animation-delay: .22s; }
+.loader-name { font: 500 clamp(2.6rem, 10vw, 4.4rem)/1 "Playfair Display", Georgia, serif; letter-spacing: .02em; animation: rise .7s .15s var(--ease) both; }
+.loader-sub { font-size: .78rem; font-weight: 600; letter-spacing: .4em; margin-right: -.4em; text-transform: uppercase; color: #f6dfae; animation: rise .6s .3s var(--ease) both; }
+@keyframes sun-set { from { opacity: 0; transform: translateY(-9px); } }
+@keyframes wave-draw { from { stroke-dashoffset: 64; } to { stroke-dashoffset: 0; } }
+@keyframes loader-out { to { clip-path: inset(0 0 100% 0); visibility: hidden; } }
 @keyframes slowzoom { from { transform: scale(1.08); } to { transform: scale(1); } }
 @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(201, 154, 59, 0); } 100% { box-shadow: 0 0 0 0 rgba(201, 154, 59, 0); } }
@@ -291,4 +303,5 @@ html:not(.js) .langs { display: none; } /* sans JavaScript, les boutons de langu
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .js .reveal, .js .stagger > * { opacity: 1; transform: none; }
+  .js .loader { display: none; }
 }
