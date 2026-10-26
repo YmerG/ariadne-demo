@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>L'Ariadne Plage · Restaurant, plage privée et bar à cocktails · Ajaccio</title>
-  <meta name="description" content="L'Ariadne Plage, route des Sanguinaires à Ajaccio : restaurant les pieds dans le sable, plage privée avec transats, bar à cocktails et soirées musicales face à la mer.">
+  <meta name="description" content="L'Ariadne Plage, route des Sanguinaires à Ajaccio : restaurant les pieds dans le sable, pizzas au feu de bois, plage privée avec transats, bar à cocktails et soirées musicales face à la mer.">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#2e1d17">
   <link rel="icon" href="images/logo.jpg">
@@ -21,9 +21,10 @@
     "name": "L'Ariadne Plage",
     "image": "images/plage-large.jpg",
     "logo": "images/logo.jpg",
-    "servesCuisine": ["Méditerranéenne", "Woks du monde", "Pizzas"],
-    "priceRange": "20-40 €",
+    "servesCuisine": ["Méditerranéenne", "Pizzas au feu de bois", "Saveurs d'Asie"],
+    "priceRange": "15-35 €",
     "telephone": "+33 4 95 52 09 63",
+    "paymentAccepted": "Carte bancaire, espèces, titres-restaurant",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "20 route des Sanguinaires",
@@ -49,134 +50,162 @@
   </script>
 </head>
 <body>
-  <a class="skip" href="#contenu">Aller au contenu</a>
+  <a class="skip" href="#contenu" data-i18n="skip">Aller au contenu</a>
 
-  <div class="demo-strip" role="note">Maquette de démonstration · site non officiel, non publié</div>
+  <div class="demo-strip" role="note" data-i18n="strip">Maquette de démonstration · site non officiel, non publié</div>
 
   <header class="header" id="haut">
-    <a class="brand" href="#haut" aria-label="L'Ariadne Plage, retour en haut">
+    <a class="brand" href="#haut" aria-label="L'Ariadne Plage, retour en haut" data-i18n-label="brandLabel">
       <img src="images/logo.jpg" alt="" width="44" height="44">
       <span>L'Ariadne <em>Plage</em></span>
     </a>
     <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
       <span></span><span></span>
     </button>
-    <nav class="nav" id="nav" aria-label="Menu principal">
-      <a href="#plage">La plage</a>
-      <a href="#carte">La carte</a>
-      <a href="#soirees">Cocktails &amp; soirées</a>
-      <a href="#infos">Infos pratiques</a>
+    <nav class="nav" id="nav" aria-label="Menu principal" data-i18n-label="navLabel">
+      <a href="#plage" data-i18n="nav1">La plage</a>
+      <a href="#carte" data-i18n="nav2">La carte</a>
+      <a href="#soirees" data-i18n="nav3">Cocktails &amp; soirées</a>
+      <a href="#infos" data-i18n="nav4">Infos pratiques</a>
+      <div class="langs" role="group" aria-label="Langue · Language · Lingua">
+        <button type="button" data-lang="fr" lang="fr" aria-label="Français" aria-pressed="true">FR</button>
+        <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+        <button type="button" data-lang="it" lang="it" aria-label="Italiano" aria-pressed="false">IT</button>
+      </div>
     </nav>
-    <a class="btn btn-sun header-call" href="tel:+33495520963" data-book>Réserver</a>
+    <a class="btn btn-sun header-call" href="tel:+33495520963" data-book data-i18n="book">Réserver</a>
   </header>
 
   <main id="contenu">
     <section class="hero" aria-labelledby="titre">
       <picture>
         <source media="(max-width: 760px)" srcset="images/plage-portrait.jpg">
-        <img class="hero-img" src="images/plage-large.jpg" alt="Transats crème et parasols terracotta de L'Ariadne sur le sable blanc, mer turquoise et voilier au large" width="1920" height="1080" fetchpriority="high">
+        <img class="hero-img" src="images/plage-large.jpg" alt="Transats crème et parasols terracotta de L'Ariadne sur le sable blanc, mer turquoise et voilier au large" data-i18n-alt="heroImg" width="1920" height="1080" fetchpriority="high">
       </picture>
+      <!-- Vidéo d'ambiance (Pixabay) : chargée par main.js seulement si les animations sont permises et la connexion correcte -->
+      <video class="hero-video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+      <button class="video-toggle" type="button" hidden></button>
       <div class="hero-content">
-        <p class="kicker">Restaurant · Plage privée · Bar à cocktails</p>
+        <p class="kicker" data-i18n="heroKicker">Restaurant · Plage privée · Bar à cocktails</p>
         <h1 id="titre">L'Ariadne <em>Plage</em></h1>
-        <p class="hero-sub">Les pieds dans le sable, face au golfe d'Ajaccio</p>
+        <p class="hero-sub" data-i18n="heroSub">Les pieds dans le sable, face au golfe d'Ajaccio</p>
         <div class="hero-actions">
-          <a class="btn btn-sun" href="tel:+33495520963" data-book>Réserver une table</a>
-          <a class="btn btn-ghost" href="#carte">Voir la carte</a>
+          <a class="btn btn-sun" href="tel:+33495520963" data-book data-i18n="heroBook">Réserver une table</a>
+          <a class="btn btn-ghost" href="#carte" data-i18n="heroMenu">Voir la carte</a>
         </div>
       </div>
-      <p class="season-badge"><span class="dot" aria-hidden="true"></span><span>Fermé en ce moment (fin de saison) · réouverture au printemps <small>(à&nbsp;confirmer)</small></span></p>
+      <p class="season-badge"><span class="dot" aria-hidden="true"></span><span data-i18n="season">Fermé en ce moment (fin de saison) · réouverture au printemps <small>(à&nbsp;confirmer)</small></span></p>
     </section>
 
     <section class="intro reveal" aria-labelledby="intro-titre">
-      <img class="intro-logo" src="images/logo.jpg" alt="Logo de L'Ariadne Plage : monogramme AP, « Depuis 1911 »" width="150" height="150" loading="lazy">
+      <img class="intro-logo" src="images/logo.jpg" alt="Logo de L'Ariadne Plage : monogramme AP, « Depuis 1911 »" data-i18n-alt="logoAlt" width="150" height="150" loading="lazy">
       <div>
-        <h2 id="intro-titre">Une plage, une table, <em>un coucher de soleil</em></h2>
-        <p>Sur la plage de sable fin de Santa Lina, à quelques minutes du centre d'Ajaccio, L'Ariadne vous accueille du café du matin jusqu'au dernier cocktail. Transats et parasols, déjeuner face à la mer, apéritif au soleil couchant, puis musique quand la nuit tombe.</p>
+        <h2 id="intro-titre" data-i18n="introTitle">Une plage, une table, <em>un coucher de soleil</em></h2>
+        <p data-i18n="introText">Sur la plage de sable fin de Santa Lina, à quelques minutes du centre d'Ajaccio, L'Ariadne vous accueille du café du matin jusqu'au dernier cocktail. Transats et parasols, déjeuner face à la mer, apéritif au soleil couchant, puis musique quand la nuit tombe.</p>
       </div>
-      <ul class="facts">
-        <li><strong>4,1<small>/5</small></strong><span>sur Google, plus de 900 avis</span></li>
-        <li><strong>Avril → oct.</strong><span>la saison</span></li>
-        <li><strong>10 h → 1 h 30</strong><span>tous les jours en saison <small>(à confirmer)</small></span></li>
-        <li><strong>Parking</strong><span>gratuit à Santa Lina</span></li>
+      <ul class="facts stagger">
+        <li><strong><span data-count="4.1" data-dec="1">4,1</span><small>/5</small></strong><span><span data-i18n="fact1a">sur Google, plus de</span> <span data-count="900">900</span> <span data-i18n="fact1b">avis</span></span></li>
+        <li><strong data-i18n="fact2v">Avril → oct.</strong><span data-i18n="fact2">la saison</span></li>
+        <li><strong data-i18n="fact3v">10 h → 1 h 30</strong><span data-i18n="fact3">tous les jours en saison <small>(à confirmer)</small></span></li>
+        <li><strong data-i18n="fact4v">Parking</strong><span data-i18n="fact4">gratuit à Santa Lina</span></li>
       </ul>
     </section>
 
     <section class="split" id="plage" aria-labelledby="plage-titre">
       <div class="split-media reveal">
-        <img src="images/plage-transats.jpg" alt="Gros plan sur les transats et une petite table en teck sous un parasol terracotta" width="1000" height="976" loading="lazy">
+        <img src="images/plage-transats.jpg" alt="Gros plan sur les transats et une petite table en teck sous un parasol terracotta" data-i18n-alt="plageImg" width="1000" height="976" loading="lazy">
       </div>
       <div class="split-text reveal">
-        <p class="kicker">La plage privée</p>
-        <h2 id="plage-titre">Votre transat, <em>les pieds dans l'eau</em></h2>
-        <p>Matelas épais, parasols à franges et petites tables en bois, sur le sable fin et face à l'eau turquoise : on s'installe pour la journée, et le restaurant est à deux pas.</p>
-        <ul class="ticks">
-          <li>Transats et parasols à la journée</li>
-          <li>Plage surveillée, douches</li>
-          <li>Accès pour fauteuil roulant</li>
-          <li>Activités nautiques à proximité</li>
+        <p class="kicker" data-i18n="plageKicker">La plage privée</p>
+        <h2 id="plage-titre" data-i18n="plageTitle">Votre transat, <em>les pieds dans l'eau</em></h2>
+        <p data-i18n="plageText">Matelas épais, parasols à franges et petites tables en bois, sur le sable fin et face à l'eau turquoise : on s'installe pour la journée, et le restaurant est à deux pas.</p>
+        <ul class="ticks stagger">
+          <li data-i18n="tick1">Transats et parasols à la journée</li>
+          <li data-i18n="tick2">Plage surveillée, douches</li>
+          <li data-i18n="tick3">Accès pour fauteuil roulant</li>
+          <li data-i18n="tick4">Activités nautiques à proximité</li>
         </ul>
-        <a class="btn btn-dark" href="https://mysunbed.com/fr/plage-privee/ajaccio/l-ariadne-plage-/" target="_blank" rel="noopener">Réserver un transat <span class="sr-only">(MySunbed, nouvel onglet)</span></a>
+        <a class="btn btn-dark" href="https://mysunbed.com/fr/plage-privee/ajaccio/l-ariadne-plage-/" target="_blank" rel="noopener" data-i18n="sunbed">Réserver un transat <span class="sr-only">(MySunbed, nouvel onglet)</span></a>
       </div>
     </section>
 
     <section class="menu-section" id="carte" aria-labelledby="carte-titre">
       <div class="menu-head reveal">
-        <p class="kicker">La carte</p>
-        <h2 id="carte-titre">Méditerranée <em>et woks du monde</em></h2>
-        <p>Une cuisine de produits frais, avec le poisson selon l'arrivage.</p>
+        <p class="kicker" data-i18n="menuKicker">La carte</p>
+        <h2 id="carte-titre" data-i18n="menuTitle">Méditerranée, feu de bois <em>et saveurs d'Asie</em></h2>
+        <p data-i18n="menuLead">Pizzas au feu de bois, poisson et viandes grillées, avec quelques touches venues d'Asie. Les prix sont ceux de la carte de l'établissement.</p>
       </div>
 
       <div class="tabs reveal">
-        <div class="tablist" role="tablist" aria-label="Rubriques de la carte">
-          <button role="tab" id="t-mer" aria-controls="p-mer" aria-selected="true">Mer &amp; woks</button>
-          <button role="tab" id="t-plage" aria-controls="p-plage" aria-selected="false" tabindex="-1">Côté plage</button>
-          <button role="tab" id="t-partage" aria-controls="p-partage" aria-selected="false" tabindex="-1">À partager</button>
-          <button role="tab" id="t-dessert" aria-controls="p-dessert" aria-selected="false" tabindex="-1">Desserts</button>
+        <div class="filters" role="group" aria-label="Filtrer les plats" data-i18n-label="filtersLabel">
+          <button type="button" data-filter="all" aria-pressed="true" data-i18n="fAll">Tout</button>
+          <button type="button" data-filter="mer" aria-pressed="false" data-i18n="fMer">Poisson &amp; fruits de mer</button>
+          <button type="button" data-filter="viande" aria-pressed="false" data-i18n="fViande">Viande</button>
+          <button type="button" data-filter="vege" aria-pressed="false" data-i18n="fVege">Végétarien</button>
+          <button type="button" data-filter="sg" aria-pressed="false" data-i18n="fSg">Sans gluten*</button>
+        </div>
+        <p class="filter-count" id="filter-count" aria-live="polite"></p>
+
+        <div class="tablist" role="tablist" aria-label="Rubriques de la carte" data-i18n-label="tabsLabel">
+          <button role="tab" id="t-entrees" aria-controls="p-entrees" aria-selected="true"><span data-i18n="tab1">Entrées</span><span class="count"></span></button>
+          <button role="tab" id="t-pizzas" aria-controls="p-pizzas" aria-selected="false" tabindex="-1"><span data-i18n="tab2">Pizzas au feu de bois</span><span class="count"></span></button>
+          <button role="tab" id="t-plats" aria-controls="p-plats" aria-selected="false" tabindex="-1"><span data-i18n="tab3">Plats &amp; salade</span><span class="count"></span></button>
+          <button role="tab" id="t-desserts" aria-controls="p-desserts" aria-selected="false" tabindex="-1"><span data-i18n="tab4">Desserts</span><span class="count"></span></button>
+          <button role="tab" id="t-enfants" aria-controls="p-enfants" aria-selected="false" tabindex="-1"><span data-i18n="tab5">Menu enfant</span><span class="count"></span></button>
         </div>
 
         <div class="tab-body">
-          <div class="placeholder ph-dish" role="img" aria-label="Emplacement réservé : photo d'un plat de L'Ariadne à ajouter">
+          <div class="placeholder ph-dish" role="img" aria-label="Emplacement réservé : photo d'un plat de L'Ariadne à ajouter" data-i18n-label="phDish">
             <img src="images/logo.jpg" alt="" width="90" height="90" loading="lazy">
-            <span>Photo d'un plat de L'Ariadne<br><small>à ajouter depuis son Instagram</small></span>
+            <span data-i18n="phDishText">Photo d'un plat de L'Ariadne<br><small>à ajouter depuis son Instagram</small></span>
           </div>
 
           <div class="panels">
-            <div role="tabpanel" id="p-mer" aria-labelledby="t-mer" tabindex="0">
+            <div role="tabpanel" id="p-entrees" aria-labelledby="t-entrees" tabindex="0">
               <ul class="dishes">
-                <li><b>Poisson du golfe</b><span>selon l'arrivage de la pêche</span></li>
-                <li><b>Mi-cuit de thon</b></li>
-                <li><b>Encornets à la plancha</b></li>
-                <li><b>Gambas</b></li>
-                <li><b>Risotto aux rougets</b></li>
-                <li><b>Woks du monde</b><span>recettes venues des quatre coins du monde (liste à demander à L'Ariadne)</span></li>
+                <li data-tags="mer"><div class="dish-top"><b data-i18n="e1">Gyozas aux crevettes</b><span class="price">15 €</span></div><span class="dish-desc" data-i18n="e1d">Sucrine, menthe et sauce soja</span><span class="allergens" data-i18n="e1a">Allergènes signalés : soja, sésame, arachides</span></li>
+                <li data-tags="mer"><div class="dish-top"><b data-i18n="e2">Tempura de gambas</b><span class="price">17 €</span></div><span class="dish-desc" data-i18n="e2d">Mayonnaise au wasabi</span></li>
+                <li data-tags="viande sg"><div class="dish-top"><b data-i18n="e3">Assiette de charcuterie de Tasso</b><span class="price">23 €</span></div></li>
               </ul>
             </div>
-            <div role="tabpanel" id="p-plage" aria-labelledby="t-plage" tabindex="0" hidden>
+            <div role="tabpanel" id="p-pizzas" aria-labelledby="t-pizzas" tabindex="0" hidden>
               <ul class="dishes">
-                <li><b>Salade César</b></li>
-                <li><b>Salade de chèvre chaud</b></li>
-                <li><b>Tartare de bœuf</b></li>
-                <li><b>Pizza Corsica</b></li>
-                <li><b>Pizza Margherita</b></li>
-                <li><b>Calzone</b></li>
-                <li><b>Club sandwich au poulet</b></li>
+                <li data-tags="viande"><div class="dish-top"><b>La Peppe</b><span class="price">19 €</span></div><span class="dish-desc" data-i18n="z1d">Fior di latte, tomates cerises, jambon de Parme, pesto et olives noires</span></li>
+                <li data-tags="vege"><div class="dish-top"><b data-i18n="z2">Pizze rolle à partager</b><span class="price">17 €</span></div><span class="dish-desc" data-i18n="z2d">Mozzarella, roquette, tomates cerises et pesto</span></li>
+                <li data-tags="viande"><div class="dish-top"><b>Focaccia L'Ariadne</b><span class="price">19 €</span></div><span class="dish-desc" data-i18n="z3d">Roquette, burrata, tomates cerises, parmesan et speck</span><span class="allergens" data-i18n="aGluten">Allergène signalé : gluten</span></li>
+                <li data-tags="mer"><div class="dish-top"><b data-i18n="z4">La moitié-moitié</b><span class="price">15 €</span></div><span class="dish-desc" data-i18n="z4d">Fromage et anchois à la bastiaise</span></li>
+                <li data-tags="vege"><div class="dish-top"><b>Margherita</b><span class="price">15 €</span></div><span class="dish-desc">Fior di latte</span><span class="allergens" data-i18n="aGlutenLait">Allergènes signalés : gluten, lait</span></li>
+                <li data-tags="mer"><div class="dish-top"><b data-i18n="z6">Anchois à la bastiaise</b><span class="price">15 €</span></div><span class="allergens" data-i18n="aGlutenPoisson">Allergènes signalés : gluten, poisson</span></li>
+                <li data-tags="viande"><div class="dish-top"><b data-i18n="z7">Reine rouge</b><span class="price">17 €</span></div><span class="dish-desc" data-i18n="z7d">Base sauce tomate</span><span class="allergens" data-i18n="aGlutenLait">Allergènes signalés : gluten, lait</span></li>
+                <li data-tags="viande"><div class="dish-top"><b data-i18n="z8">Reine blanche</b><span class="price">17 €</span></div><span class="dish-desc" data-i18n="z8d">Base crème</span><span class="allergens" data-i18n="aGlutenLait">Allergènes signalés : gluten, lait</span></li>
+                <li data-tags="vege"><div class="dish-top"><b data-i18n="z9">4 fromages</b><span class="price">17 €</span></div><span class="dish-desc" data-i18n="z9d">Gorgonzola, chèvre, fior di latte</span><span class="allergens" data-i18n="aGlutenLait">Allergènes signalés : gluten, lait</span></li>
+                <li data-tags="viande"><div class="dish-top"><b>Chorizo</b><span class="price">17 €</span></div><span class="allergens" data-i18n="aGlutenLait">Allergènes signalés : gluten, lait</span></li>
               </ul>
             </div>
-            <div role="tabpanel" id="p-partage" aria-labelledby="t-partage" tabindex="0" hidden>
+            <div role="tabpanel" id="p-plats" aria-labelledby="t-plats" tabindex="0" hidden>
               <ul class="dishes">
-                <li><b>Planche de charcuterie</b></li>
-                <li><b>Tapas</b></li>
-                <li><b>Nuggets maison</b></li>
+                <li data-tags="viande"><div class="dish-top"><b data-i18n="p1">Tataki de bavette de bœuf façon yakitori à la cacahuète</b><span class="price">27 €</span></div><span class="dish-desc"><em class="badge" data-i18n="sugg">Suggestion du jour</em> <span data-i18n="p1d">Frites maison</span></span></li>
+                <li data-tags="viande"><div class="dish-top"><b data-i18n="p2">Tagliata de pluma ibérique, sauce teriyaki maison</b><span class="price">31 €</span></div><span class="dish-desc"><em class="badge" data-i18n="sugg">Suggestion du jour</em> <span data-i18n="p2d">Écrasé de pommes de terre</span></span><span class="allergens" data-i18n="p2a">Allergènes signalés : sésame, soja</span></li>
+                <li data-tags="viande"><div class="dish-top"><b data-i18n="p3">Caesar salad</b><span class="price">21 €</span></div><span class="dish-desc" data-i18n="p3d">Poulet pané maison, chips de pancetta, œuf, lardons, tomme de brebis, croûtons, tomates cerises et romaine</span></li>
+                <li data-tags="mer"><div class="dish-top"><b data-i18n="p4">Roll brioché de gambas et crabe</b><span class="price">27 €</span></div><span class="dish-desc" data-i18n="p4d">Légumes croquants, mayonnaise spicy et frites maison</span><span class="allergens" data-i18n="p4a">Allergènes signalés : œufs, poisson</span></li>
+                <li data-tags="viande"><div class="dish-top"><b data-i18n="p5">Chicken fried burger et frites maison</b><span class="price">21 €</span></div><span class="dish-desc" data-i18n="p5d">Potato bun, poulet pané aux corn flakes, cheddar, sauce tartare et sucrine</span><span class="allergens" data-i18n="p5a">Allergènes signalés : œufs, gluten</span></li>
+                <li data-tags="viande sg"><div class="dish-top"><b data-i18n="p6">Entrecôte et frites maison</b><span class="price">35 €</span></div><span class="dish-desc" data-i18n="p6d">Environ 400 g, sauce tartare maison</span></li>
+                <li data-tags="viande sg"><div class="dish-top"><b data-i18n="p7">Côte de bœuf d'environ 1,2 kg</b><span class="price">95 €</span></div><span class="dish-desc" data-i18n="p7d">Frites maison, légumes de printemps ou salade verte, sauce tartare maison</span></li>
               </ul>
             </div>
-            <div role="tabpanel" id="p-dessert" aria-labelledby="t-dessert" tabindex="0" hidden>
+            <div role="tabpanel" id="p-desserts" aria-labelledby="t-desserts" tabindex="0" hidden>
               <ul class="dishes">
-                <li><b>Pavlova</b></li>
-                <li><b>Café gourmand</b></li>
+                <li data-tags="vege"><div class="dish-top"><b data-i18n="d1">Profiterole maison</b><span class="price">11 €</span></div><span class="dish-desc" data-i18n="d1d">Glace vanille de la maison Salge et coulis de chocolat</span></li>
+                <li data-tags="vege"><div class="dish-top"><b data-i18n="d2">Cookies à partager</b><span class="price">17 €</span></div><span class="allergens" data-i18n="d2a">Allergènes signalés : œufs, arachides, gluten, noix</span></li>
+                <li data-tags="vege"><div class="dish-top"><b data-i18n="d3">Glaces artisanales Salge</b><span class="price" data-i18n="priceAsk">prix sur place</span></div><span class="dish-desc" data-i18n="d3d">À la boule</span><span class="allergens" data-i18n="aLait">Allergène signalé : lait</span></li>
               </ul>
             </div>
-            <p class="menu-note">Plats relevés sur des annuaires publics (janvier 2026). La carte exacte et les prix sont à confirmer avec L'Ariadne.</p>
+            <div role="tabpanel" id="p-enfants" aria-labelledby="t-enfants" tabindex="0" hidden>
+              <ul class="dishes">
+                <li><div class="dish-top"><b data-i18n="k1">Plat + dessert au choix</b><span class="price">13 €</span></div><span class="dish-desc" data-i18n="k1d">Penne à la sauce tomate ou poulet pané et frites, puis un petit pot de glace (vanille ou fraise…)</span></li>
+              </ul>
+            </div>
+            <p class="menu-note" data-i18n="menuNote">Carte et prix relevés le 27 octobre 2026 sur la carte en ligne de L'Ariadne (saison 2026), <strong>à confirmer pour 2027</strong>. Les filtres sont indicatifs, d'après les ingrédients : *&nbsp;en cas d'allergie ou d'intolérance, demandez toujours sur place. Les allergènes sont ceux signalés par l'établissement.</p>
           </div>
         </div>
       </div>
@@ -184,48 +213,48 @@
 
     <section class="night" id="soirees" aria-labelledby="soirees-titre">
       <div class="night-text reveal">
-        <p class="kicker">Cocktails &amp; soirées</p>
-        <h2 id="soirees-titre">Quand le soleil <em>plonge derrière les Sanguinaires</em></h2>
-        <p>Mojitos, cocktails glacés et rosé de Corse bien frais : l'apéritif se prend face à la mer. Puis la musique monte. L'été, les soirées s'enchaînent, avec DJ et musiques du monde <small>(programme à confirmer)</small>.</p>
-        <ul class="chips" aria-label="Au bar">
-          <li>Mojitos</li><li>Cocktails glacés</li><li>Rosé de Corse</li><li>Rhums</li><li>Bières &amp; cafés</li>
+        <p class="kicker" data-i18n="nightKicker">Cocktails &amp; soirées</p>
+        <h2 id="soirees-titre" data-i18n="nightTitle">Quand le soleil <em>plonge derrière les Sanguinaires</em></h2>
+        <p data-i18n="nightText">Mojitos, cocktails glacés et rosé de Corse bien frais : l'apéritif se prend face à la mer. Puis la musique monte. L'été, les soirées s'enchaînent, avec DJ et musiques du monde <small>(programme à confirmer)</small>.</p>
+        <ul class="chips stagger" aria-label="Au bar" data-i18n-label="chipsLabel">
+          <li data-i18n="chip1">Mojitos</li><li data-i18n="chip2">Cocktails glacés</li><li data-i18n="chip3">Rosé de Corse</li><li data-i18n="chip4">Rhums</li><li data-i18n="chip5">Bières &amp; cafés</li>
         </ul>
-        <p class="private">Anniversaire, mariage, soirée d'entreprise ? <a href="tel:+33495520963">L'Ariadne se privatise</a>.</p>
+        <p class="private" data-i18n="private">Anniversaire, mariage, soirée d'entreprise ? <a href="tel:+33495520963">L'Ariadne se privatise</a>.</p>
       </div>
-      <div class="placeholder ph-night reveal" role="img" aria-label="Emplacement réservé : photo de soirée ou de cocktail de L'Ariadne à ajouter">
+      <div class="placeholder ph-night reveal" role="img" aria-label="Emplacement réservé : photo de soirée ou de cocktail de L'Ariadne à ajouter" data-i18n-label="phNight">
         <img src="images/logo.jpg" alt="" width="90" height="90" loading="lazy">
-        <span>Photo de soirée ou de cocktail<br><small>à ajouter depuis l'Instagram de L'Ariadne</small></span>
+        <span data-i18n="phNightText">Photo de soirée ou de cocktail<br><small>à ajouter depuis l'Instagram de L'Ariadne</small></span>
       </div>
     </section>
 
     <section class="infos" id="infos" aria-labelledby="infos-titre">
-      <h2 id="infos-titre" class="reveal">Infos <em>pratiques</em></h2>
-      <div class="info-grid">
-        <article class="card reveal">
-          <h3>Adresse</h3>
+      <h2 id="infos-titre" class="reveal" data-i18n="infosTitle">Infos <em>pratiques</em></h2>
+      <div class="info-grid stagger">
+        <article class="card">
+          <h3 data-i18n="addrTitle">Adresse</h3>
           <p>20 route des Sanguinaires<br>20000 Ajaccio</p>
-          <p class="muted">Plage de Santa Lina, première plage à gauche en venant du centre. Grand parking gratuit.</p>
-          <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=L%27Ariadne+Plage+20+route+des+Sanguinaires+Ajaccio" target="_blank" rel="noopener">Itinéraire Google Maps <span class="sr-only">(nouvel onglet)</span></a>
+          <p class="muted" data-i18n="addrNote">Plage de Santa Lina, première plage à gauche en venant du centre. Grand parking gratuit.</p>
+          <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=L%27Ariadne+Plage+20+route+des+Sanguinaires+Ajaccio" target="_blank" rel="noopener" data-i18n="gmaps">Itinéraire Google Maps <span class="sr-only">(nouvel onglet)</span></a>
         </article>
-        <article class="card reveal">
-          <h3>Horaires</h3>
-          <p>D'avril à fin octobre<br>Tous les jours, de 10 h à 1 h 30</p>
-          <p class="muted">Horaires de la saison 2026 relevés sur un annuaire, à confirmer. Fermé l'hiver.</p>
+        <article class="card">
+          <h3 data-i18n="hoursTitle">Horaires</h3>
+          <p data-i18n="hoursText">D'avril à fin octobre<br>Tous les jours, de 10 h à 1 h 30</p>
+          <p class="muted" data-i18n="hoursNote">Horaires de la saison 2026 relevés sur un annuaire, à confirmer. Fermé l'hiver.</p>
         </article>
-        <article class="card reveal">
-          <h3>Réservation</h3>
-          <p>Par téléphone<br><a class="tel" href="tel:+33495520963">04 95 52 09 63</a></p>
-          <p><a class="link" href="tel:+33495520963" data-book>Réserver une table en ligne</a> <small class="muted">(démo)</small></p>
-          <p class="muted">Conseillée le soir en été et le week-end. Transats : réservation en ligne.</p>
+        <article class="card">
+          <h3 data-i18n="resaTitle">Réservation</h3>
+          <p><span data-i18n="resaText">Par téléphone</span><br><a class="tel" href="tel:+33495520963">04 95 52 09 63</a></p>
+          <p><a class="link" href="tel:+33495520963" data-book data-i18n="resaOnline">Réserver une table en ligne</a> <small class="muted" data-i18n="demo">(démo)</small></p>
+          <p class="muted" data-i18n="resaNote">Conseillée le soir en été et le week-end. Transats : réservation en ligne.</p>
         </article>
-        <article class="card reveal">
-          <h3>Suivez la plage</h3>
+        <article class="card">
+          <h3 data-i18n="socialTitle">Suivez la plage</h3>
           <ul class="socials">
             <li><a href="https://www.instagram.com/lariadneplageajaccio/" target="_blank" rel="noopener">Instagram</a></li>
             <li><a href="https://www.facebook.com/people/LAriadne-Plage-Ajaccio/61556640426436/" target="_blank" rel="noopener">Facebook</a></li>
             <li><a href="https://www.tiktok.com/@ariadneplage" target="_blank" rel="noopener">TikTok</a></li>
           </ul>
-          <p class="muted">Carte bancaire acceptée.</p>
+          <p class="muted" data-i18n="payNote">Carte bancaire, espèces et titres-restaurant acceptés.</p>
         </article>
       </div>
     </section>
@@ -234,7 +263,8 @@
   <footer class="footer">
     <img src="images/logo.jpg" alt="" width="72" height="72" loading="lazy">
     <p><strong>L'Ariadne Plage</strong> · 20 route des Sanguinaires, 20000 Ajaccio · <a href="tel:+33495520963">04 95 52 09 63</a></p>
-    <p class="demo-note"><strong>Maquette de démonstration</strong> réalisée sans lien avec l'établissement, non publiée. Photos et logo © L'Ariadne, à remplacer ou à valider après accord. Informations publiques à confirmer.</p>
+    <p class="demo-note" data-i18n="foot1"><strong>Maquette de démonstration</strong> réalisée sans lien avec l'établissement, non publiée. Photos et logo © L'Ariadne, à remplacer ou à valider après accord. Informations publiques à confirmer.</p>
+    <p class="demo-note" data-i18n="foot2">Vidéo d'accueil : « Shot of beach waves during sunset », <a href="https://pixabay.com/videos/sea-ocean-beach-waves-sun-dusk-138588/" target="_blank" rel="noopener">Pixabay n°&nbsp;138588</a> (licence Pixabay). Ce n'est pas la plage de L'Ariadne.</p>
   </footer>
 
   <!-- Réservation de DÉMONSTRATION : rien n'est envoyé ni enregistré, tout est effacé à la fermeture -->
@@ -242,105 +272,105 @@
     <form class="bk" novalidate>
       <header class="bk-head">
         <p class="kicker">L'Ariadne Plage · Ajaccio</p>
-        <h2 id="bk-title">Réserver une table</h2>
-        <p class="bk-demo" role="note"><strong>Démo :</strong> aucune réservation n'est envoyée ni enregistrée.</p>
-        <ol class="bk-steps" aria-label="Étapes de la réservation">
-          <li>Date &amp; heure</li>
-          <li>Coordonnées</li>
-          <li>Récapitulatif</li>
+        <h2 id="bk-title" data-i18n="bkTitle">Réserver une table</h2>
+        <p class="bk-demo" role="note" data-i18n="bkDemo"><strong>Démo :</strong> aucune réservation n'est envoyée ni enregistrée.</p>
+        <ol class="bk-steps" aria-label="Étapes de la réservation" data-i18n-label="bkStepsLabel">
+          <li data-i18n="bkS1">Date &amp; heure</li>
+          <li data-i18n="bkS2">Coordonnées</li>
+          <li data-i18n="bkS3">Récapitulatif</li>
         </ol>
-        <button class="bk-close" type="button" aria-label="Fermer" data-bk-close>×</button>
+        <button class="bk-close" type="button" aria-label="Fermer" data-i18n-label="bkClose" data-bk-close>×</button>
       </header>
 
       <div class="bk-body">
         <section class="bk-step" data-step="1" aria-labelledby="bk-h1">
-          <h3 id="bk-h1" tabindex="-1">Quand venez-vous&nbsp;?</h3>
+          <h3 id="bk-h1" tabindex="-1" data-i18n="bkH1">Quand venez-vous&nbsp;?</h3>
           <div class="bk-cols">
             <div class="cal">
               <div class="cal-head">
-                <button class="cal-nav" type="button" data-cal="-1" aria-label="Mois précédent">‹</button>
+                <button class="cal-nav" type="button" data-cal="-1" aria-label="Mois précédent" data-i18n-label="bkPrevMonth">‹</button>
                 <p class="cal-month" id="bk-month" aria-live="polite"></p>
-                <button class="cal-nav" type="button" data-cal="1" aria-label="Mois suivant">›</button>
+                <button class="cal-nav" type="button" data-cal="1" aria-label="Mois suivant" data-i18n-label="bkNextMonth">›</button>
               </div>
               <div class="cal-grid" id="bk-cal" role="group" aria-labelledby="bk-month" aria-describedby="bk-err-date bk-season"></div>
               <p class="bk-err" id="bk-err-date" hidden></p>
-              <p class="small bk-season" id="bk-season">L'Ariadne est fermée l'hiver&nbsp;: réservations possibles du 1<sup>er</sup>&nbsp;avril au 31&nbsp;octobre 2027 <strong>(dates de saison à confirmer)</strong>.</p>
+              <p class="small bk-season" id="bk-season" data-i18n="bkSeason">L'Ariadne est fermée l'hiver&nbsp;: réservations possibles du 1<sup>er</sup>&nbsp;avril au 31&nbsp;octobre 2027 <strong>(dates de saison à confirmer)</strong>.</p>
             </div>
             <div class="bk-side">
               <fieldset class="bk-field">
-                <legend>Service</legend>
+                <legend data-i18n="bkService">Service</legend>
                 <div class="pills">
-                  <label class="pill"><input type="radio" name="service" value="midi"><span>Midi</span></label>
-                  <label class="pill"><input type="radio" name="service" value="soir" checked><span>Soir</span></label>
+                  <label class="pill"><input type="radio" name="service" value="midi"><span data-i18n="bkLunch">Midi</span></label>
+                  <label class="pill"><input type="radio" name="service" value="soir" checked><span data-i18n="bkDinner">Soir</span></label>
                 </div>
               </fieldset>
               <fieldset class="bk-field" aria-describedby="bk-err-slot">
-                <legend>Heure</legend>
+                <legend data-i18n="bkTime">Heure</legend>
                 <div class="pills slots" id="bk-slots"></div>
                 <p class="bk-err" id="bk-err-slot" hidden></p>
-                <p class="small">Créneaux d'exemple, <strong>à confirmer avec l'établissement</strong>.</p>
+                <p class="small" data-i18n="bkSlotsNote">Créneaux d'exemple, <strong>à confirmer avec l'établissement</strong>.</p>
               </fieldset>
               <div class="bk-field">
-                <label class="bk-label" for="bk-guests">Nombre de personnes</label>
+                <label class="bk-label" for="bk-guests" data-i18n="bkGuests">Nombre de personnes</label>
                 <div class="stepper">
-                  <button type="button" data-guests="-1" aria-label="Une personne de moins">−</button>
+                  <button type="button" data-guests="-1" aria-label="Une personne de moins" data-i18n-label="bkLess">−</button>
                   <input id="bk-guests" name="guests" type="number" inputmode="numeric" min="1" max="12" value="2">
-                  <button type="button" data-guests="1" aria-label="Une personne de plus">+</button>
+                  <button type="button" data-guests="1" aria-label="Une personne de plus" data-i18n-label="bkMore">+</button>
                 </div>
-                <p class="small">Plus de 12 personnes ou privatisation&nbsp;? Appelez-nous.</p>
+                <p class="small" data-i18n="bkGroup">Plus de 12 personnes ou privatisation&nbsp;? Appelez-nous.</p>
               </div>
             </div>
           </div>
         </section>
 
         <section class="bk-step" data-step="2" aria-labelledby="bk-h2" hidden>
-          <h3 id="bk-h2" tabindex="-1">Vos coordonnées</h3>
+          <h3 id="bk-h2" tabindex="-1" data-i18n="bkH2">Vos coordonnées</h3>
           <div class="bk-fields">
             <div class="bk-field">
-              <label class="bk-label" for="bk-name">Nom <span aria-hidden="true">*</span></label>
+              <label class="bk-label" for="bk-name"><span data-i18n="bkName">Nom</span> <span aria-hidden="true">*</span></label>
               <input id="bk-name" name="name" type="text" autocomplete="name" required maxlength="60" aria-describedby="bk-err-name">
               <p class="bk-err" id="bk-err-name" hidden></p>
             </div>
             <div class="bk-field">
-              <label class="bk-label" for="bk-phone">Téléphone <span aria-hidden="true">*</span></label>
+              <label class="bk-label" for="bk-phone"><span data-i18n="bkPhone">Téléphone</span> <span aria-hidden="true">*</span></label>
               <input id="bk-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" aria-describedby="bk-err-phone">
               <p class="bk-err" id="bk-err-phone" hidden></p>
             </div>
             <div class="bk-field bk-wide">
-              <label class="bk-label" for="bk-email">E-mail <span aria-hidden="true">*</span></label>
+              <label class="bk-label" for="bk-email"><span data-i18n="bkEmail">E-mail</span> <span aria-hidden="true">*</span></label>
               <input id="bk-email" name="email" type="email" autocomplete="email" required maxlength="80" aria-describedby="bk-err-email">
               <p class="bk-err" id="bk-err-email" hidden></p>
             </div>
           </div>
           <fieldset class="bk-field">
-            <legend>Demande particulière (facultatif)</legend>
+            <legend data-i18n="bkWishes">Demande particulière (facultatif)</legend>
             <div class="pills">
-              <label class="pill"><input type="checkbox" name="wish" value="Anniversaire"><span>Anniversaire</span></label>
-              <label class="pill"><input type="checkbox" name="wish" value="Face à la mer"><span>Face à la mer</span></label>
-              <label class="pill"><input type="checkbox" name="wish" value="Chaise bébé"><span>Chaise bébé</span></label>
-              <label class="pill"><input type="checkbox" name="wish" value="Allergie ou régime"><span>Allergie ou régime</span></label>
+              <label class="pill"><input type="checkbox" name="wish" value="bkW1"><span data-i18n="bkW1">Anniversaire</span></label>
+              <label class="pill"><input type="checkbox" name="wish" value="bkW2"><span data-i18n="bkW2">Face à la mer</span></label>
+              <label class="pill"><input type="checkbox" name="wish" value="bkW3"><span data-i18n="bkW3">Chaise bébé</span></label>
+              <label class="pill"><input type="checkbox" name="wish" value="bkW4"><span data-i18n="bkW4">Allergie ou régime</span></label>
             </div>
-            <label class="bk-label" for="bk-note">Précisions</label>
+            <label class="bk-label" for="bk-note" data-i18n="bkNote">Précisions</label>
             <textarea id="bk-note" name="note" rows="3" maxlength="300"></textarea>
           </fieldset>
-          <p class="small">* champs obligatoires. Rien n'est envoyé&nbsp;: tout est effacé quand vous fermez cette fenêtre.</p>
+          <p class="small" data-i18n="bkRequired">* champs obligatoires. Rien n'est envoyé&nbsp;: tout est effacé quand vous fermez cette fenêtre.</p>
         </section>
 
         <section class="bk-step" data-step="3" aria-labelledby="bk-h3" hidden>
-          <h3 id="bk-h3" tabindex="-1">Vérifiez votre réservation</h3>
+          <h3 id="bk-h3" tabindex="-1" data-i18n="bkH3">Vérifiez votre réservation</h3>
           <div class="recap" id="bk-recap"></div>
         </section>
 
         <section class="bk-step bk-done" data-step="4" aria-labelledby="bk-h4" hidden>
           <svg class="bk-check" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29"/><path d="M19 33l9 9 17-19"/></svg>
-          <h3 id="bk-h4" tabindex="-1">Merci, c'est noté&nbsp;!</h3>
+          <h3 id="bk-h4" tabindex="-1" data-i18n="bkH4">Merci, c'est noté&nbsp;!</h3>
           <p class="bk-done-text" id="bk-done-text"></p>
-          <p class="bk-demo"><strong>Démo : aucune réservation n'a été envoyée.</strong> Sur le site final, cette demande serait transmise à L'Ariadne. Pour réserver aujourd'hui, appelez le 04&nbsp;95&nbsp;52&nbsp;09&nbsp;63.</p>
+          <p class="bk-demo" data-i18n="bkDoneDemo"><strong>Démo : aucune réservation n'a été envoyée.</strong> Sur le site final, cette demande serait transmise à L'Ariadne. Pour réserver aujourd'hui, appelez le 04&nbsp;95&nbsp;52&nbsp;09&nbsp;63.</p>
         </section>
       </div>
 
       <footer class="bk-foot">
-        <a class="bk-call" href="tel:+33495520963">ou appelez-nous · 04&nbsp;95&nbsp;52&nbsp;09&nbsp;63</a>
+        <a class="bk-call" href="tel:+33495520963"><span data-i18n="bkCall">ou appelez-nous</span> · 04&nbsp;95&nbsp;52&nbsp;09&nbsp;63</a>
         <div class="bk-actions">
           <button class="btn btn-line" type="button" data-bk-back></button>
           <button class="btn btn-sun" type="submit" data-bk-next></button>
@@ -349,12 +379,13 @@
     </form>
   </dialog>
 
-  <nav class="mobile-bar" aria-label="Actions rapides">
-    <a href="tel:+33495520963" data-book><span aria-hidden="true">☎</span> Réserver</a>
-    <a href="https://www.google.com/maps/search/?api=1&amp;query=L%27Ariadne+Plage+20+route+des+Sanguinaires+Ajaccio" target="_blank" rel="noopener"><span aria-hidden="true">➤</span> Itinéraire</a>
-    <a href="#carte"><span aria-hidden="true">≡</span> Carte</a>
+  <nav class="mobile-bar" aria-label="Actions rapides" data-i18n-label="barLabel">
+    <a href="tel:+33495520963" data-book><span aria-hidden="true">☎</span> <span data-i18n="book">Réserver</span></a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=L%27Ariadne+Plage+20+route+des+Sanguinaires+Ajaccio" target="_blank" rel="noopener"><span aria-hidden="true">➤</span> <span data-i18n="barMap">Itinéraire</span></a>
+    <a href="#carte"><span aria-hidden="true">≡</span> <span data-i18n="barMenu">Carte</span></a>
   </nav>
 
+  <script src="js/i18n.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/booking.js" defer></script>
 </body>

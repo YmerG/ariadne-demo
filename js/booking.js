@@ -1,11 +1,8 @@
-// Réservation de DÉMONSTRATION (module repris du Lamparo, en français seulement).
+// Réservation de DÉMONSTRATION (module repris du Lamparo), en français, anglais et italien.
 // Rien n'est envoyé (aucune requête réseau) ni enregistré (aucun cookie, aucun stockage) : tout est effacé à la fermeture.
-// Utilise nav et setMenu définis dans main.js.
+// Utilise $, $$, reduce, t, fill, lang, FR, checkI18n, nav et setMenu définis dans main.js.
 
-const $ = (s, root = document) => root.querySelector(s);
-const $$ = (s, root = document) => [...root.querySelectorAll(s)];
-const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const TXT = {
+Object.assign(FR, {
   bkContinue: 'Continuer',
   bkConfirm: 'Confirmer (démo)',
   bkBack: 'Retour',
@@ -16,6 +13,8 @@ const TXT = {
   bkErrName: 'Indiquez votre nom (2 lettres au moins).',
   bkErrPhone: 'Indiquez un numéro de téléphone valide, par exemple 06 12 34 56 78.',
   bkErrEmail: 'Indiquez une adresse e-mail valide, par exemple nom@exemple.fr.',
+  bkGuest1: '1 personne',
+  bkGuestN: '{n} personnes',
   bkRecapWhen: 'Votre table',
   bkRecapWho: 'Vos coordonnées',
   bkEdit: 'Modifier',
@@ -27,9 +26,10 @@ const TXT = {
   bkLPhone: 'Téléphone',
   bkLEmail: 'E-mail',
   bkLWishes: 'Demande',
-  bkNone: 'Aucune'
-};
-const t = k => TXT[k];
+  bkNone: 'Aucune',
+  bkDoneText: '{name}, table pour {guests}, le {date} à {time}.'
+});
+checkI18n();
 
 const bk = $('.booking');
 const form = $('.bk', bk);
@@ -57,10 +57,16 @@ const parisNow = () => {
 const range = () => ({ first: Math.max(parisNow().today, SEASON.open), last: SEASON.close });
 const monthOf = ms => { const d = new Date(ms); return Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1); };
 const addMonths = (ms, n) => { const d = new Date(ms); return Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + n, 1); };
-const fmtDate = (ms, o) => new Intl.DateTimeFormat('fr-FR', { timeZone: 'UTC', ...o }).format(ms);
+const loc = () => ({ fr: 'fr-FR', en: 'en-GB', it: 'it-IT' })[lang];
+const fmtDate = (ms, o) => new Intl.DateTimeFormat(loc(), { timeZone: 'UTC', ...o }).format(ms);
 const longDate = ms => fmtDate(ms, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-const fmtTime = hm => { const [h, m] = hm.split(':').map(Number); return m ? `${h} h ${m}` : `${h} h`; };
-const guestsText = n => (n === 1 ? '1 personne' : `${n} personnes`);
+const fmtTime = hm => {
+  const [h, m] = hm.split(':').map(Number);
+  if (lang === 'en') return new Intl.DateTimeFormat('en-GB', { timeZone: 'UTC', hour: 'numeric', minute: '2-digit', hour12: true }).format(Date.UTC(2000, 0, 1, h, m));
+  if (lang === 'it') return hm;
+  return m ? `${h} h ${m}` : `${h} h`;
+};
+const guestsText = n => (n === 1 ? t('bkGuest1') : t('bkGuestN').replace('{n}', n));
 const cap = s => s[0].toUpperCase() + s.slice(1);
 
 // ---------- Calendrier (flèches : jour suivant / précédent, haut et bas : semaine) ----------
@@ -201,7 +207,7 @@ const validate = step => {
 
 // ---------- Récapitulatif (textes saisis insérés en textContent, jamais en HTML) ----------
 const wishes = () => {
-  const list = $$('[name="wish"]:checked', bk).map(c => c.value);
+  const list = $$('[name="wish"]:checked', bk).map(c => t(c.value));
   if (val('note')) list.push(val('note'));
   return list.join(' · ') || t('bkNone');
 };
@@ -209,7 +215,7 @@ const renderRecap = () => {
   const box = $('#bk-recap');
   box.textContent = '';
   [
-    ['bkRecapWhen', 1, [['bkLDate', cap(longDate(state.date))], ['bkLService', form.elements.service.value === 'midi' ? 'Midi' : 'Soir'], ['bkLTime', fmtTime(form.elements.slot.value)], ['bkLGuests', guestsText(+guests.value)]]],
+    ['bkRecapWhen', 1, [['bkLDate', cap(longDate(state.date))], ['bkLService', t(form.elements.service.value === 'midi' ? 'bkLunch' : 'bkDinner')], ['bkLTime', fmtTime(form.elements.slot.value)], ['bkLGuests', guestsText(+guests.value)]]],
     ['bkRecapWho', 2, [['bkLName', val('name')], ['bkLPhone', val('phone')], ['bkLEmail', val('email')], ['bkLWishes', wishes()]]]
   ].forEach(([title, step, rows]) => {
     const group = document.createElement('div');
@@ -235,7 +241,7 @@ const renderRecap = () => {
   });
 };
 const renderDone = () => {
-  $('#bk-done-text').textContent = `${val('name')}, table pour ${guestsText(+guests.value)}, le ${longDate(state.date)} à ${fmtTime(form.elements.slot.value)}.`;
+  $('#bk-done-text').textContent = fill(t('bkDoneText'), { name: val('name'), guests: guestsText(+guests.value), date: longDate(state.date), time: fmtTime(form.elements.slot.value) });
 };
 
 // ---------- Étapes ----------
@@ -284,4 +290,12 @@ $$('[data-book]').forEach(a => a.addEventListener('click', e => {
   bk.showModal();
   $('#bk-h1').focus();
 }));
+document.addEventListener('langchange', () => {
+  renderCal();
+  renderSlots();
+  renderButtons();
+  if (state.step === 3) renderRecap();
+  if (state.step === 4) renderDone();
+  $$('.bk-err', bk).forEach(p => { if (p.dataset.key) p.textContent = t(p.dataset.key); });
+});
 reset();
