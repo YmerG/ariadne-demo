@@ -80,8 +80,8 @@ window.I18N = {
     chipsLabel: 'At the bar',
     chip1: 'Mojitos', chip2: 'Frozen cocktails', chip3: 'Corsican rosé', chip4: 'Rums', chip5: 'Beers &amp; coffee',
     private: 'Birthday, wedding, company party? <a href="tel:+33495520963">L\'Ariadne can be privatised</a>.',
-    phNight: "Reserved space: photo of a party or cocktail at L'Ariadne, to be added",
-    phNightText: "Photo of a party or cocktail<br><small>to be added from L'Ariadne's Instagram</small>",
+    capCocktail: 'House cocktail',
+    altCocktail: 'Amber, frothy cocktail in a stemmed glass, on a table facing the beach',
 
     infosTitle: 'Practical <em>info</em>',
     addrTitle: 'Address',
@@ -221,8 +221,8 @@ window.I18N = {
     chipsLabel: 'Al bar',
     chip1: 'Mojito', chip2: 'Cocktail ghiacciati', chip3: 'Rosato corso', chip4: 'Rum', chip5: 'Birre &amp; caffè',
     private: 'Compleanno, matrimonio, festa aziendale? <a href="tel:+33495520963">L\'Ariadne si può riservare in esclusiva</a>.',
-    phNight: "Spazio riservato: foto di una serata o di un cocktail de L'Ariadne, da aggiungere",
-    phNightText: "Foto di una serata o di un cocktail<br><small>da aggiungere dall'Instagram de L'Ariadne</small>",
+    capCocktail: 'Cocktail della casa',
+    altCocktail: 'Cocktail ambrato e spumoso in un bicchiere a calice, su un tavolo di fronte alla spiaggia',
 
     infosTitle: 'Info <em>pratiche</em>',
     addrTitle: 'Indirizzo',

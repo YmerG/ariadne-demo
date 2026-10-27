@@ -205,7 +205,8 @@ html:not(.js) .langs { display: none; } /* sans JavaScript, les boutons de langu
 .chips { list-style: none; padding: 0; margin: 1.4rem 0; display: flex; flex-wrap: wrap; gap: .5rem; }
 .chips li { padding: .4rem 1rem; border-radius: 999px; border: 1px solid rgba(240, 196, 110, .5); color: #f6e3bd; }
 .private a { color: #f0c46e; text-underline-offset: 3px; }
-.ph-night { aspect-ratio: 4 / 4.6; border-color: rgba(240, 196, 110, .45); color: var(--sand); background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .04) 0 14px, rgba(255, 255, 255, 0) 14px 28px), #3a241b; }
+.night-photo { background: #3a241b; }
+.night-photo img { aspect-ratio: 900 / 1012; }
 
 /* Infos */
 .infos { width: min(100% - 2.4rem, 1180px); margin: clamp(4rem, 9vw, 7rem) auto; }
@@ -293,7 +294,7 @@ html:not(.js) .langs { display: none; } /* sans JavaScript, les boutons de langu
   .tablist { flex-wrap: wrap; }
   .split-media { aspect-ratio: 4 / 3.4; }
   .dish-photos { order: 2; }
-  .ph-night { aspect-ratio: 16 / 10; }
+  .night-photo { width: min(100%, 460px); }
   .info-grid { grid-template-columns: 1fr; }
   .mobile-bar { display: grid; grid-template-columns: repeat(3, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 55; height: 64px; padding-bottom: env(safe-area-inset-bottom); background: rgba(42, 26, 20, .94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
   .mobile-bar a { display: flex; align-items: center; justify-content: center; gap: .4rem; color: var(--cream); text-decoration: none; font-weight: 600; }
