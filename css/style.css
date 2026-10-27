@@ -106,17 +106,12 @@ html:not(.js) .langs { display: none; } /* sans JavaScript, les boutons de langu
 .season-badge { position: absolute; z-index: 1; right: clamp(1rem, 4vw, 3rem); bottom: clamp(1.4rem, 4vh, 2.4rem); margin: 0; display: flex; align-items: center; gap: .5rem; padding: .5rem 1rem; border-radius: 999px; background: rgba(246, 240, 227, .92); color: var(--ink); font-size: .92rem; }
 .dot { flex: none; width: .6rem; height: .6rem; border-radius: 50%; background: var(--ochre); box-shadow: 0 0 0 0 rgba(201, 154, 59, .6); animation: pulse 2.4s infinite; }
 
-/* Écran d'arrivée : le soleil se pose sur l'horizon, les vagues se dessinent, puis le rideau se lève (fini avant 1,4 s) */
+/* Écran d'arrivée : le logo apparaît, puis le rideau se lève (fini avant 1,4 s) */
 .loader { display: none; }
 .js .loader { position: fixed; inset: 0; z-index: 200; display: grid; place-content: center; justify-items: center; gap: .7rem; background: radial-gradient(circle at 50% 42%, #5c2a1c, var(--night) 64%); color: var(--cream); cursor: pointer; animation: loader-out .5s cubic-bezier(.7, 0, .2, 1) .85s forwards; }
-.loader-sun { overflow: visible; margin-bottom: .2rem; }
-.loader-sun .sun { fill: #f6dfae; animation: sun-set .7s var(--ease) both; }
-.loader-sun .wave { fill: none; stroke: var(--ochre); stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 64; animation: wave-draw .7s .1s ease-out both; }
-.loader-sun .wave-2 { stroke: var(--cream); opacity: .7; animation-delay: .22s; }
-.loader-name { font: 500 clamp(2.6rem, 10vw, 4.4rem)/1 "Playfair Display", Georgia, serif; letter-spacing: .02em; animation: rise .7s .15s var(--ease) both; }
+.loader-logo { width: clamp(170px, 46vw, 200px); height: auto; clip-path: circle(48.8%); /* coupe le liseré crème du JPG : aucun coin visible */ animation: logo-in .65s var(--ease) both; }
 .loader-sub { font-size: .78rem; font-weight: 600; letter-spacing: .4em; margin-right: -.4em; text-transform: uppercase; color: #f6dfae; animation: rise .6s .3s var(--ease) both; }
-@keyframes sun-set { from { opacity: 0; transform: translateY(-9px); } }
-@keyframes wave-draw { from { stroke-dashoffset: 64; } to { stroke-dashoffset: 0; } }
+@keyframes logo-in { from { opacity: 0; transform: scale(.86) rotate(-8deg); } }
 @keyframes loader-out { to { clip-path: inset(0 0 100% 0); visibility: hidden; } }
 @keyframes slowzoom { from { transform: scale(1.08); } to { transform: scale(1); } }
 @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
@@ -193,7 +188,14 @@ html:not(.js) .langs { display: none; } /* sans JavaScript, les boutons de langu
 .placeholder img { width: 90px; height: 90px; border-radius: 50%; opacity: .55; filter: saturate(.6); }
 .placeholder span { font-weight: 600; letter-spacing: .02em; }
 .placeholder small { font-weight: 400; }
-.ph-dish { aspect-ratio: 4 / 4.4; }
+.dish-photos { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.dish-photo { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius); background: var(--sand); }
+.dish-photo.big { grid-column: 1 / -1; }
+.dish-photo img { width: 100%; height: 100%; aspect-ratio: 1; object-fit: cover; }
+.dish-photo.big img { aspect-ratio: 5 / 4; }
+.dish-photo figcaption { position: absolute; inset: auto 0 0; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 .6rem; padding: 2.2rem .9rem .7rem; background: linear-gradient(transparent, rgba(30, 18, 12, .82) 55%); color: var(--cream); font-weight: 600; line-height: 1.25; }
+.dish-photo small { font-size: .78rem; font-weight: 400; opacity: .9; }
+.dish-photos-note { grid-column: 1 / -1; margin: 0; font-size: .88rem; color: var(--muted); }
 
 /* Soirées */
 .night { background: radial-gradient(120% 90% at 85% 10%, #4a2a1f 0%, var(--night) 60%); color: var(--cream); padding: clamp(4rem, 9vw, 7rem) max(1.2rem, calc((100% - 1180px) / 2)); display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
@@ -290,7 +292,7 @@ html:not(.js) .langs { display: none; } /* sans JavaScript, les boutons de langu
   .js .filters { gap: .4rem; }
   .tablist { flex-wrap: wrap; }
   .split-media { aspect-ratio: 4 / 3.4; }
-  .ph-dish { aspect-ratio: 16 / 9; order: 2; }
+  .dish-photos { order: 2; }
   .ph-night { aspect-ratio: 16 / 10; }
   .info-grid { grid-template-columns: 1fr; }
   .mobile-bar { display: grid; grid-template-columns: repeat(3, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 55; height: 64px; padding-bottom: env(safe-area-inset-bottom); background: rgba(42, 26, 20, .94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
