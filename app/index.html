@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Réservations · L'Ariadne Plage (démo)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#2a1a14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ariadne Résa">
+  <link rel="icon" href="icones/icone-192.png">
+  <link rel="apple-touch-icon" href="icones/icone-180.png">
+  <link rel="preload" href="../fonts/afacad-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <!-- Application du restaurateur : DÉMONSTRATION. Données fictives ou saisies sur le site, gardées dans ce navigateur, jamais envoyées. -->
+
+  <section class="lock" id="lock" aria-labelledby="lock-title">
+    <div class="lock-inner">
+      <img class="lock-logo" src="icones/icone-192.png" alt="" width="88" height="88">
+      <p class="lock-kicker">L'Ariadne Plage</p>
+      <h1 id="lock-title">Réservations</h1>
+      <p class="lock-sub">Entrez votre code d'accès</p>
+      <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <p class="lock-msg" id="lock-msg" role="status" aria-live="assertive"></p>
+      <div class="keypad" role="group" aria-label="Clavier du code">
+        <button type="button" data-key="1">1</button><button type="button" data-key="2">2</button><button type="button" data-key="3">3</button>
+        <button type="button" data-key="4">4</button><button type="button" data-key="5">5</button><button type="button" data-key="6">6</button>
+        <button type="button" data-key="7">7</button><button type="button" data-key="8">8</button><button type="button" data-key="9">9</button>
+        <span></span><button type="button" data-key="0">0</button><button type="button" data-key="del" aria-label="Effacer le dernier chiffre">⌫</button>
+      </div>
+      <p class="lock-hint"><span class="pill-demo">Démo</span> code 1234</p>
+    </div>
+  </section>
+
+  <div class="app" id="app" hidden>
+    <header class="top">
+      <div class="top-row">
+        <img class="top-logo" src="icones/icone-192.png" alt="" width="40" height="40">
+        <div class="top-title">
+          <p>L'Ariadne Plage</p>
+          <h1>Réservations</h1>
+        </div>
+        <span class="live" title="Les réservations faites sur le site arrivent ici en direct"><i></i> En direct</span>
+        <button class="icon-btn" type="button" id="lock-btn" aria-label="Verrouiller l'application">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V7.8a3.5 3.5 0 0 1 7 0v2.7"/></svg>
+        </button>
+      </div>
+      <p class="demo-strip"><strong>Démo</strong> · réservations d'exemple fictives · rien n'est envoyé</p>
+      <div class="day-nav">
+        <button class="icon-btn" type="button" data-day="-1" aria-label="Jour précédent">‹</button>
+        <button class="day-pick" type="button" id="day-pick" aria-describedby="day-help">
+          <span class="day-name" id="day-name"></span>
+          <span class="day-date" id="day-date"></span>
+        </button>
+        <input class="sr-only" type="date" id="day-input" tabindex="-1" aria-hidden="true">
+        <button class="icon-btn" type="button" data-day="1" aria-label="Jour suivant">›</button>
+      </div>
+      <p class="sr-only" id="day-help">Choisir un autre jour</p>
+    </header>
+
+    <main class="main">
+      <div class="side">
+        <section class="services" aria-label="Places en ligne par service" id="services"></section>
+
+        <div class="card switch-card">
+          <div>
+            <p class="switch-title" id="online-label">Réservations en ligne ce jour</p>
+            <p class="switch-sub" id="online-sub"></p>
+          </div>
+          <button class="switch" type="button" role="switch" id="online" aria-labelledby="online-label"><i></i></button>
+        </div>
+
+        <p class="totals" id="totals"></p>
+
+        <section class="card settings" aria-labelledby="set-title">
+          <h2 id="set-title">Réglages</h2>
+          <div class="quota">
+            <div>
+              <p class="switch-title" id="quota-label">Places en ligne par service</p>
+              <p class="switch-sub">Le reste de la salle est gardé pour les habitués et les clients sans réservation.</p>
+            </div>
+            <div class="stepper" role="group" aria-labelledby="quota-label">
+              <button type="button" data-quota="-2" aria-label="2 places de moins">−</button>
+              <output id="quota" aria-live="polite"></output>
+              <button type="button" data-quota="2" aria-label="2 places de plus">+</button>
+            </div>
+          </div>
+          <button class="link-btn" type="button" id="reset">Remettre la démo à zéro</button>
+        </section>
+      </div>
+
+      <section class="list" aria-labelledby="list-title">
+        <h2 class="sr-only" id="list-title">Réservations du jour</h2>
+        <div id="list"></div>
+      </section>
+    </main>
+
+    <p class="foot">Application de <strong>démonstration</strong>. Les réservations « Exemple fictif » sont inventées ; celles faites sur le site restent dans ce navigateur, rien n'est envoyé.</p>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden>
+    <span class="toast-bell" aria-hidden="true"></span>
+    <div class="toast-text">
+      <strong>Nouvelle réservation</strong>
+      <span id="toast-detail"></span>
+    </div>
+    <button type="button" class="toast-btn" id="toast-see">Voir</button>
+  </div>
+
+  <script src="../js/demo-store.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
